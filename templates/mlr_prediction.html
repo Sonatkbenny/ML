@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLR Prediction - Student Grade Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; margin: 10px; }
+        .result { font-size: 1.2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>📘 Multiple Linear Regression - Predict Student Grade</h2>
+    <form action="/predict_mlr" method="post">
+        <label>Enter Student Mark (out of 100):</label>
+        <input type="number" name="student_mark" required step="any"><br>
+
+        <label>Enter Study Hours per Week:</label>
+        <input type="number" name="study_hours" required step="any"><br>
+
+        <label>Enter Attendance Percentage:</label>
+        <input type="number" name="attendance" required step="any"><br>
+
+        <button type="submit">Predict Grade</button>
+    </form>
+
+    {% if prediction is not none %}
+        <div class="result">
+            <p>✅ Predicted Grade: <strong>{{ prediction }}</strong></p>
+        </div>
+    {% endif %}
+
+    <a href="/"><button>🔙 Back to Home</button></a>
+</body>
+</html>
